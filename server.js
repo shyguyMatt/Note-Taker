@@ -4,6 +4,7 @@ const fs = require('fs')
 
 const { readFromFile, readAndAppend } = require('./helpers/fsUtils');
 
+const PORT = 3001;
 
 const app = express();
 
@@ -38,3 +39,7 @@ app.post('/api/notes', (req, res) => {
         res.error('Error adding new note')
     }
 })
+
+app.listen(process.env.PORT, () =>
+    console.log(`App listening at http://localhost:${PORT}`)
+);
