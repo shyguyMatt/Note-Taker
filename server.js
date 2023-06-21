@@ -39,7 +39,3 @@ app.post('/api/notes', (req, res) => {
         res.error('Error adding new note')
     }
 })
-
-app.listen(PORT, () =>
-    console.log(`App listening at http://localhost:${PORT}`)
-);
