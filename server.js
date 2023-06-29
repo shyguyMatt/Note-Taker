@@ -27,11 +27,6 @@ app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 )
 
-// catch all route redirects to homepage
-app.get('*', (req, res) => 
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-)
-
 // api returns db.json
 app.get('/api/notes', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
@@ -53,6 +48,11 @@ app.post('/api/notes', (req, res) => {
         res.error('Error adding new note')
     }
 })
+
+// catch all route redirects to homepage
+app.get('*', (req, res) => 
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+)
 
 // listening port
 app.listen(PORT, () =>
