@@ -29,7 +29,7 @@ app.get('/notes', (req, res) =>
 
 // catch all route redirects to homepage
 app.get('*', (req, res) => 
-    res.sendFile(path.join(__dirname, 'public/index.html'))
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 )
 
 // api returns db.json
